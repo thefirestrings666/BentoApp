@@ -25,8 +25,13 @@ import NewContentAvailableToastr from '@/components/NewContentAvailableToastr'
 import AppleAddToHomeScreenModal from '@/components/AppleAddToHomeScreenModal'
 import { mapState, mapActions, mapGetters } from 'vuex'
 
+
 export default {
-  components: { NavBar, NewContentAvailableToastr, AppleAddToHomeScreenModal },
+  components: {
+    NavBar,
+    NewContentAvailableToastr,
+    AppleAddToHomeScreenModal
+  },
   computed: {
     ...mapGetters('app', ['newContentAvailable']),
     ...mapState('app', ['showAddToHomeScreenModalForApple', 'refreshingApp'])

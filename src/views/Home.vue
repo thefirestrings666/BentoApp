@@ -1,22 +1,18 @@
 <template>
   <div class="page-wrapper">
-    <h1 class="home-page-title">{{ appTitle }}</h1>
-    <img alt="logo-bento" class="logo" src="@/assets/img/bento-starter.svg" />
-
-    <a
-      rel="noopener"
-      class="documentation-link"
-      target="_blank"
-      href="https://bento-starter.netlify.com/"
-      >Documentation →</a
-    >
+    <h1 class="home-page-title">ShowYourCat</h1>
+    <CatLoader></CatLoader>
   </div>
 </template>
 
 <script>
 import { mapState } from 'vuex'
+import CatLoader from "../components/CatLoader"
 
 export default {
+  components: {
+    CatLoader
+  },
   head() {
     return {
       title: {
