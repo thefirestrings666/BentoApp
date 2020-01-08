@@ -1,6 +1,6 @@
 <template>
   <div>
-    <span> {{ imgUrl_1 }} !</span>
+    <span><img :src="img" /></span>
   </div>
 </template>
 
@@ -8,20 +8,31 @@
 import axios from 'axios'
 
 export default {
+
   data: () => {
-    return {
-      imgUrl_1: String
-    }
+      return {
+          img: ''
+      }
   },
-  created: () => {
-    console.log(imgUrl_1)
+  created() {
+        axios.get('https://api.thecatapi.com/v1/images/search').then(response => {
+        console.log(response.data[0].url)
+        this.img = response.data[0].url
+      })  
   },
   methods: {
     generateNewImage() {
       axios.get('https://api.thecatapi.com/v1/images/search').then(response => {
-        this.imgUrl_1 = response.data[0].url
+      console.log(response.data[0].url)
       })
     }
   }
 }
 </script>
+
+<style lang="scss" scoped>
+img {
+    width: 100%;
+}
+
+</style>
